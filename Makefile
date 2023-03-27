@@ -7,3 +7,6 @@ init:
 
 generate:
 	go run $(GQLGEN) generate
+
+server:
+	go run server.go
