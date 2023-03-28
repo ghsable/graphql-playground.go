@@ -5,8 +5,6 @@ import (
 
   "gorm.io/gorm"
   "gorm.io/driver/sqlite"
-
-  "github.com/ghsable/graphql-playground.go/graph/model"
 )
 
 type Product struct {
@@ -23,7 +21,7 @@ func main() {
   }
 
   // Migrate the schema
-  db.AutoMigrate(&model.NewTodo{})
+  db.AutoMigrate(&Product{})
 
   // Create
   //db.Create(&Product{Code: "D42", Price: 100})
