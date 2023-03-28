@@ -5,12 +5,13 @@ go 1.20
 require (
 	github.com/99designs/gqlgen v0.17.27
 	github.com/vektah/gqlparser/v2 v2.5.1
+	gorm.io/driver/sqlite v1.4.4
+	gorm.io/gorm v1.24.6
 )
 
 require (
 	github.com/agnivade/levenshtein v1.1.1 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
-	github.com/go-sql-driver/mysql v1.7.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/hashicorp/golang-lru/v2 v2.0.1 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
@@ -25,11 +26,4 @@ require (
 	golang.org/x/text v0.7.0 // indirect
 	golang.org/x/tools v0.7.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	gorm.io/datatypes v1.1.1 // indirect
-	gorm.io/driver/mysql v1.4.7 // indirect
-	gorm.io/driver/sqlite v1.4.4 // indirect
-	gorm.io/gen v0.3.21 // indirect
-	gorm.io/gorm v1.24.6 // indirect
-	gorm.io/hints v1.1.1 // indirect
-	gorm.io/plugin/dbresolver v1.4.1 // indirect
 )
