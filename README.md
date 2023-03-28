@@ -4,6 +4,7 @@
 ## development
 ```
 .
+├── .gitignore : system
 ├── dev.db : human
 ├── go.mod : system
 ├── go.sum : system
