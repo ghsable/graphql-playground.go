@@ -1,7 +1,7 @@
 datasource db {
     // could be postgresql or mysql
     provider = "sqlite"
-    url      = "file:./database/graphql-playground.sqlite3"
+    url      = "file:dev.db"
 }
 
 generator db {
