@@ -71,5 +71,5 @@ func inserts(db *gorm.DB) {
 	if result.Error != nil {
 		log.Fatal(result.Error)
 	}
-	fmt.Println("count:", result.RowsAffected)
+	fmt.Println("inserted:", result.RowsAffected)
 }
