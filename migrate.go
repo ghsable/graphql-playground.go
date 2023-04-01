@@ -17,7 +17,6 @@ type User struct {
 }
 
 func main() {
-
 	db := dbInit()
 
 	db.AutoMigrate(&User{})
