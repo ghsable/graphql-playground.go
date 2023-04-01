@@ -56,6 +56,16 @@ func inserts(db *gorm.DB) {
 			Name:        "name-c",
 			IsActive:    true,
 		},
+		{
+			Email:       "d@xxx.com",
+			Name:        "name-d",
+			IsActive:    false,
+		},
+		{
+			Email:       "e@xxx.com",
+			Name:        "name-e",
+			IsActive:    false,
+		},
 	}
 	result := db.Create(&users)
 	if result.Error != nil {
