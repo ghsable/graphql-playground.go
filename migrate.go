@@ -17,11 +17,13 @@ type User struct {
 }
 
 func main() {
-	db := dbInit()
+	{
+		db := dbInit()
 
-	db.AutoMigrate(&User{})
+		db.AutoMigrate(&User{})
 
-	insert(db)
+		insert(db)
+	}
 
 	fmt.Println("DONE.")
 }
