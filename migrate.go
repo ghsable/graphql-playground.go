@@ -13,7 +13,7 @@ type User struct {
 
   Email string
   Name string
-  Deactivated bool
+  IsActive bool
 }
 
 func main() {
@@ -44,17 +44,17 @@ func inserts(db *gorm.DB) {
 		{
 			Email:       "a@xxx.com",
 			Name:        "name-a",
-			Deactivated: false,
+			IsActive:    true,
 		},
 		{
 			Email:       "b@xxx.com",
 			Name:        "name-b",
-			Deactivated: false,
+			IsActive:    true,
 		},
 		{
 			Email:       "c@xxx.com",
 			Name:        "name-c",
-			Deactivated: false,
+			IsActive:    true,
 		},
 	}
 	result := db.Create(&users)
