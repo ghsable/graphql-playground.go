@@ -65,9 +65,10 @@ func insert(db *gorm.DB) {
 			IsActive: false,
 		},
 	}
-	result := db.Create(&users)
-	if result.Error != nil {
+	data := &users
+	if result := db.Create(data); result.Error != nil {
 		log.Fatal(result.Error)
+	} else {
+		fmt.Println("inserted:", result.RowsAffected)
 	}
-	fmt.Println("inserted:", result.RowsAffected)
 }
