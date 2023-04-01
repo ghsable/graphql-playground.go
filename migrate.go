@@ -8,8 +8,8 @@ import (
 )
 
 type User struct {
-  //gorm.Model
-  ID string
+  gorm.Model
+
   Email string
   Name string
   Deactivated bool
