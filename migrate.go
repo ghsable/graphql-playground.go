@@ -2,6 +2,7 @@ package main
 
 import (
   "fmt"
+  "log"
 
   "gorm.io/gorm"
   "gorm.io/driver/sqlite"
@@ -24,6 +25,7 @@ func main() {
 
   // Create
   //db.Create(&Product{Code: "D42", Price: 100})
+  inserts(db)
 
   fmt.Println("DONE.")
 }
@@ -35,4 +37,29 @@ func dbInit() *gorm.DB {
     panic("failed to connect database")
   }
   return db
+}
+
+func inserts(db *gorm.DB) {
+	users := []User{
+		{
+			Email:       "a@xxx.com",
+			Name:        "name-a",
+			Deactivated: false,
+		},
+		{
+			Email:       "b@xxx.com",
+			Name:        "name-b",
+			Deactivated: false,
+		},
+		{
+			Email:       "c@xxx.com",
+			Name:        "name-c",
+			Deactivated: false,
+		},
+	}
+	result := db.Create(&users)
+	if result.Error != nil {
+		log.Fatal(result.Error)
+	}
+	fmt.Println("count:", result.RowsAffected)
 }
