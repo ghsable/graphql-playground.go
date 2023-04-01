@@ -34,6 +34,11 @@ func (r *queryResolver) Hello(ctx context.Context) (string, error) {
 	return "Hello world!!", nil
 }
 
+// User is the resolver for the user field.
+func (r *queryResolver) User(ctx context.Context) ([]*model.User, error) {
+	panic(fmt.Errorf("not implemented: User - user"))
+}
+
 // Mutation returns MutationResolver implementation.
 func (r *Resolver) Mutation() MutationResolver { return &mutationResolver{r} }
 
