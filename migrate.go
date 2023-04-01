@@ -7,10 +7,12 @@ import (
   "gorm.io/driver/sqlite"
 )
 
-type Product struct {
-  gorm.Model
-  Code  string
-  Price uint
+type User struct {
+  //gorm.Model
+  ID string
+  Email string
+  Name string
+  Deactivated bool
 }
 
 func main() {
@@ -21,10 +23,10 @@ func main() {
   }
 
   // Migrate the schema
-  db.AutoMigrate(&Product{})
+  db.AutoMigrate(&User{})
 
   // Create
   //db.Create(&Product{Code: "D42", Price: 100})
 
-  fmt.Println("Finish")
+  fmt.Println("DONE.")
 }
