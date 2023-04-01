@@ -11,8 +11,8 @@ import (
 type User struct {
 	gorm.Model
 
-	Email    string
 	Name     string
+	Email    string
 	IsActive bool
 }
 
@@ -40,28 +40,28 @@ func dbInit() *gorm.DB {
 func insert(db *gorm.DB) {
 	users := []User{
 		{
-			Email:    "a@xxx.com",
 			Name:     "name-a",
+			Email:    "a@xxx.com",
 			IsActive: true,
 		},
 		{
-			Email:    "b@xxx.com",
 			Name:     "name-b",
+			Email:    "b@xxx.com",
 			IsActive: true,
 		},
 		{
-			Email:    "c@xxx.com",
 			Name:     "name-c",
+			Email:    "c@xxx.com",
 			IsActive: true,
 		},
 		{
-			Email:    "d@xxx.com",
 			Name:     "name-d",
+			Email:    "d@xxx.com",
 			IsActive: false,
 		},
 		{
-			Email:    "e@xxx.com",
 			Name:     "name-e",
+			Email:    "e@xxx.com",
 			IsActive: false,
 		},
 	}
