@@ -20,12 +20,9 @@ func main() {
 
   db := dbInit()
 
-  // Migrate the schema
   db.AutoMigrate(&User{})
 
-  // Create
-  //db.Create(&Product{Code: "D42", Price: 100})
-  inserts(db)
+  insert(db)
 
   fmt.Println("DONE.")
 }
@@ -39,7 +36,7 @@ func dbInit() *gorm.DB {
   return db
 }
 
-func inserts(db *gorm.DB) {
+func insert(db *gorm.DB) {
 	users := []User{
 		{
 			Email:       "a@xxx.com",
