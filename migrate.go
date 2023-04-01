@@ -17,10 +17,7 @@ type User struct {
 
 func main() {
 
-  db, err := gorm.Open(sqlite.Open("dev.db"), &gorm.Config{})
-  if err != nil {
-    panic("failed to connect database")
-  }
+  db := dbInit()
 
   // Migrate the schema
   db.AutoMigrate(&User{})
@@ -29,4 +26,13 @@ func main() {
   //db.Create(&Product{Code: "D42", Price: 100})
 
   fmt.Println("DONE.")
+}
+
+func dbInit() *gorm.DB {
+  dsn := "dev.db"
+  db, err := gorm.Open(sqlite.Open(dsn), &gorm.Config{})
+  if err != nil {
+    panic("failed to connect database")
+  }
+  return db
 }
