@@ -22,7 +22,7 @@ func main() {
 
 		db.AutoMigrate(&User{})
 
-		insert(db)
+		InsertData(db)
 	}
 
 	fmt.Println("DONE.")
@@ -37,7 +37,7 @@ func ConnectDB() *gorm.DB {
 	return db
 }
 
-func insert(db *gorm.DB) {
+func InsertData(db *gorm.DB) {
 	users := []User{
 		{
 			Name:     "name-a",
