@@ -18,7 +18,7 @@ type User struct {
 
 func main() {
 	{
-		db := dbInit()
+		db := ConnectDB()
 
 		db.AutoMigrate(&User{})
 
@@ -28,7 +28,7 @@ func main() {
 	fmt.Println("DONE.")
 }
 
-func dbInit() *gorm.DB {
+func ConnectDB() *gorm.DB {
 	dsn := "dev.db"
 	db, err := gorm.Open(sqlite.Open(dsn), &gorm.Config{})
 	if err != nil {
