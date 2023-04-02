@@ -10,6 +10,9 @@ import (
 	"math/rand"
 
 	"github.com/ghsable/graphql-playground.go/graph/model"
+
+	"gorm.io/driver/sqlite"
+	"gorm.io/gorm"
 )
 
 // createTodo mutation
@@ -36,7 +39,13 @@ func (r *queryResolver) Hello(ctx context.Context) (string, error) {
 
 // User is the resolver for the user field.
 func (r *queryResolver) User(ctx context.Context) ([]*model.User, error) {
-	panic(fmt.Errorf("not implemented: User - user"))
+	db := ConnectDB()
+	var users []*model.User
+	result := db.Find(&users)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return users, nil
 }
 
 // Mutation returns MutationResolver implementation.
@@ -47,3 +56,12 @@ func (r *Resolver) Query() QueryResolver { return &queryResolver{r} }
 
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
+
+func ConnectDB() *gorm.DB {
+	dsn := "dev.db"
+	db, err := gorm.Open(sqlite.Open(dsn), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+	return db
+}
