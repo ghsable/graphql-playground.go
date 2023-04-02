@@ -41,8 +41,7 @@ func (r *queryResolver) Hello(ctx context.Context) (string, error) {
 func (r *queryResolver) User(ctx context.Context) ([]*model.User, error) {
 	db := ConnectDB()
 	var users []*model.User
-	result := db.Find(&users)
-	if result.Error != nil {
+	if result := db.Find(&users); result.Error != nil {
 		return nil, result.Error
 	}
 	return users, nil
