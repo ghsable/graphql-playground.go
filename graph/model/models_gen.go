@@ -18,5 +18,5 @@ type User struct {
 	ID       string `json:"id"`
 	Name     string `json:"name"`
 	Email    string `json:"email"`
-	Isactive bool   `json:"isactive"`
+	IsActive bool   `json:"is_active"`
 }

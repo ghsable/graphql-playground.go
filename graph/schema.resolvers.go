@@ -37,7 +37,7 @@ func (r *queryResolver) Hello(ctx context.Context) (string, error) {
 }
 
 // User is the resolver for the user field.
-func (r *queryResolver) User(ctx context.Context, id *int, name *string, email *string, isactive *bool) ([]*model.User, error) {
+func (r *queryResolver) User(ctx context.Context, id *int, name *string, email *string, isActive *bool) ([]*model.User, error) {
 	db := ConnectDB()
 	query := db.Model(&model.User{})
 	var users []*model.User
@@ -50,8 +50,12 @@ func (r *queryResolver) User(ctx context.Context, id *int, name *string, email *
 	if email != nil {
 		query = query.Where("email = ?", email)
 	}
-	if isactive != nil {
-		query = query.Where("is_active = ?", isactive)
+	if isActive != nil {
+		if *isActive {
+			query = query.Where("is_active IS TRUE")
+		} else {
+			query = query.Where("is_active IS FALSE OR is_active IS NULL")
+		}
 	}
 	if err := query.Find(&users).Error; err != nil {
 		return nil, err

@@ -52,7 +52,7 @@ type ComplexityRoot struct {
 	Query struct {
 		Hello func(childComplexity int) int
 		Todos func(childComplexity int) int
-		User  func(childComplexity int, id *int, name *string, email *string, isactive *bool) int
+		User  func(childComplexity int, id *int, name *string, email *string, isActive *bool) int
 	}
 
 	Todo struct {
@@ -65,7 +65,7 @@ type ComplexityRoot struct {
 	User struct {
 		Email    func(childComplexity int) int
 		ID       func(childComplexity int) int
-		Isactive func(childComplexity int) int
+		IsActive func(childComplexity int) int
 		Name     func(childComplexity int) int
 	}
 }
@@ -76,7 +76,7 @@ type MutationResolver interface {
 type QueryResolver interface {
 	Todos(ctx context.Context) ([]*model.Todo, error)
 	Hello(ctx context.Context) (string, error)
-	User(ctx context.Context, id *int, name *string, email *string, isactive *bool) ([]*model.User, error)
+	User(ctx context.Context, id *int, name *string, email *string, isActive *bool) ([]*model.User, error)
 }
 
 type executableSchema struct {
@@ -130,7 +130,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.User(childComplexity, args["id"].(*int), args["name"].(*string), args["email"].(*string), args["isactive"].(*bool)), true
+		return e.complexity.Query.User(childComplexity, args["id"].(*int), args["name"].(*string), args["email"].(*string), args["is_active"].(*bool)), true
 
 	case "Todo.done":
 		if e.complexity.Todo.Done == nil {
@@ -174,12 +174,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.User.ID(childComplexity), true
 
-	case "User.isactive":
-		if e.complexity.User.Isactive == nil {
+	case "User.is_active":
+		if e.complexity.User.IsActive == nil {
 			break
 		}
 
-		return e.complexity.User.Isactive(childComplexity), true
+		return e.complexity.User.IsActive(childComplexity), true
 
 	case "User.name":
 		if e.complexity.User.Name == nil {
@@ -337,14 +337,14 @@ func (ec *executionContext) field_Query_user_args(ctx context.Context, rawArgs m
 	}
 	args["email"] = arg2
 	var arg3 *bool
-	if tmp, ok := rawArgs["isactive"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("isactive"))
+	if tmp, ok := rawArgs["is_active"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_active"))
 		arg3, err = ec.unmarshalOBoolean2ᚖbool(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
-	args["isactive"] = arg3
+	args["is_active"] = arg3
 	return args, nil
 }
 
@@ -563,7 +563,7 @@ func (ec *executionContext) _Query_user(ctx context.Context, field graphql.Colle
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().User(rctx, fc.Args["id"].(*int), fc.Args["name"].(*string), fc.Args["email"].(*string), fc.Args["isactive"].(*bool))
+		return ec.resolvers.Query().User(rctx, fc.Args["id"].(*int), fc.Args["name"].(*string), fc.Args["email"].(*string), fc.Args["is_active"].(*bool))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -594,8 +594,8 @@ func (ec *executionContext) fieldContext_Query_user(ctx context.Context, field g
 				return ec.fieldContext_User_name(ctx, field)
 			case "email":
 				return ec.fieldContext_User_email(ctx, field)
-			case "isactive":
-				return ec.fieldContext_User_isactive(ctx, field)
+			case "is_active":
+				return ec.fieldContext_User_is_active(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
 		},
@@ -920,8 +920,8 @@ func (ec *executionContext) fieldContext_Todo_user(ctx context.Context, field gr
 				return ec.fieldContext_User_name(ctx, field)
 			case "email":
 				return ec.fieldContext_User_email(ctx, field)
-			case "isactive":
-				return ec.fieldContext_User_isactive(ctx, field)
+			case "is_active":
+				return ec.fieldContext_User_is_active(ctx, field)
 			}
 			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
 		},
@@ -1061,8 +1061,8 @@ func (ec *executionContext) fieldContext_User_email(ctx context.Context, field g
 	return fc, nil
 }
 
-func (ec *executionContext) _User_isactive(ctx context.Context, field graphql.CollectedField, obj *model.User) (ret graphql.Marshaler) {
-	fc, err := ec.fieldContext_User_isactive(ctx, field)
+func (ec *executionContext) _User_is_active(ctx context.Context, field graphql.CollectedField, obj *model.User) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_User_is_active(ctx, field)
 	if err != nil {
 		return graphql.Null
 	}
@@ -1075,7 +1075,7 @@ func (ec *executionContext) _User_isactive(ctx context.Context, field graphql.Co
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Isactive, nil
+		return obj.IsActive, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1092,7 +1092,7 @@ func (ec *executionContext) _User_isactive(ctx context.Context, field graphql.Co
 	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) fieldContext_User_isactive(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_User_is_active(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "User",
 		Field:      field,
@@ -3152,9 +3152,9 @@ func (ec *executionContext) _User(ctx context.Context, sel ast.SelectionSet, obj
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "isactive":
+		case "is_active":
 
-			out.Values[i] = ec._User_isactive(ctx, field, obj)
+			out.Values[i] = ec._User_is_active(ctx, field, obj)
 
 			if out.Values[i] == graphql.Null {
 				invalids++
