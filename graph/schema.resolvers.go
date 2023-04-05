@@ -10,7 +10,6 @@ import (
 	"math/rand"
 
 	"github.com/ghsable/graphql-playground.go/graph/model"
-
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -38,11 +37,17 @@ func (r *queryResolver) Hello(ctx context.Context) (string, error) {
 }
 
 // User is the resolver for the user field.
-func (r *queryResolver) User(ctx context.Context) ([]*model.User, error) {
+func (r *queryResolver) User(ctx context.Context, id *int, name *string, email *string, isactive *bool) ([]*model.User, error) {
 	db := ConnectDB()
 	var users []*model.User
-	if result := db.Find(&users); result.Error != nil {
-		return nil, result.Error
+	if id != nil {
+		if result := db.Where("id = ?", *id).Find(&users); result.Error != nil {
+			return nil, result.Error
+		}
+	} else {
+		if result := db.Find(&users); result.Error != nil {
+			return nil, result.Error
+		}
 	}
 	return users, nil
 }
@@ -56,6 +61,12 @@ func (r *Resolver) Query() QueryResolver { return &queryResolver{r} }
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
 
+// !!! WARNING !!!
+// The code below was going to be deleted when updating resolvers. It has been copied here so you have
+// one last chance to move it out of harms way if you want. There are two reasons this happens:
+//   - When renaming or deleting a resolver the old code will be put in here. You can safely delete
+//     it when you're done.
+//   - You have helper methods in this file. Move them out to keep these resolver files clean.
 func ConnectDB() *gorm.DB {
 	dsn := "dev.db"
 	db, err := gorm.Open(sqlite.Open(dsn), &gorm.Config{})
