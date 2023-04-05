@@ -13,13 +13,13 @@ type User {
   id: ID!
   name: String!
   email: String!
-  isactive: Boolean!
+  is_active: Boolean!
 }
 
 type Query {
   todos: [Todo!]!
   hello: String!
-  user(id: Int, name: String, email: String, isactive: Boolean): [User!]!
+  user(id: Int, name: String, email: String, is_active: Boolean): [User!]!
 }
 
 input NewTodo {
