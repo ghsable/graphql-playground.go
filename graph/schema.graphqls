@@ -19,7 +19,7 @@ type User {
 type Query {
   todos: [Todo!]!
   hello: String!
-  user: [User!]!
+  user(id: Int, name: String, email: String, isactive: Boolean): [User!]!
 }
 
 input NewTodo {
