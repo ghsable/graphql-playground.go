@@ -11,11 +11,12 @@
 ├── gqlgen.yml : system
 ├── graph : system
 │   ├── generated.go : system
+│   ├── helper.go : human
 │   ├── model : system
 │   │   └── models_gen.go : system
 │   ├── resolver.go : human
 │   ├── schema.graphqls : human
-│   └── schema.resolvers.go : human
+│   └── schema.resolvers.go : system/human
 ├── LICENSE : system
 ├── Makefile : human
 ├── migrate.go : human
