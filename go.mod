@@ -3,7 +3,7 @@ module github.com/ghsable/graphql-playground.go
 go 1.20
 
 require (
-	github.com/99designs/gqlgen v0.17.27
+	github.com/99designs/gqlgen v0.17.28
 	github.com/vektah/gqlparser/v2 v2.5.1
 	gorm.io/driver/sqlite v1.4.4
 	gorm.io/gorm v1.24.6
