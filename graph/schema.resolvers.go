@@ -51,7 +51,7 @@ func (r *queryResolver) User(ctx context.Context, id *int, name *string, email *
 		query = query.Where("email = ?", email)
 	}
 	if isactive != nil {
-		query = query.Where("isactive = ?", isactive)
+		query = query.Where("is_active = ?", isactive)
 	}
 	if err := query.Find(&users).Error; err != nil {
 		return nil, err
