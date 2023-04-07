@@ -2,13 +2,6 @@
 #
 # https://gqlgen.com/getting-started/
 
-type Todo {
-  id: ID!
-  text: String!
-  done: Boolean!
-  user: User!
-}
-
 type User {
   id: Int!
   created_at: Time!
@@ -30,13 +23,7 @@ type Query {
   user(id: Int, name: String, email: String, is_active: Boolean): [User!]!
 }
 
-input NewTodo {
-  text: String!
-  userId: String!
-}
-
 type Mutation {
-  createTodo(input: NewTodo!): Todo!
   insertUser(input: NewUser!): User!
 }
 
