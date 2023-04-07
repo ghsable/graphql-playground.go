@@ -7,6 +7,7 @@ package graph
 import (
 	"context"
 	"fmt"
+	"log"
 	"math/rand"
 
 	"github.com/ghsable/graphql-playground.go/graph/model"
@@ -17,7 +18,7 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) 
 	todo := &model.Todo{
 		Text: input.Text,
 		ID:   fmt.Sprintf("T%d", rand.Int()),
-		User: &model.User{ID: input.UserID, Name: "user " + input.UserID},
+		//User: &model.User{ID: input.UserID, Name: "user " + input.UserID},
 	}
 	r.todos = append(r.todos, todo)
 	return todo, nil
@@ -25,7 +26,18 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) 
 
 // InsertUser is the resolver for the insertUser field.
 func (r *mutationResolver) InsertUser(ctx context.Context, name string, email string, isActive bool) (*model.User, error) {
-	panic(fmt.Errorf("not implemented: InsertUser - insertUser"))
+	db := ConnectDB()
+	user := &model.User{
+		Name:     name,
+		Email:    email,
+		IsActive: isActive,
+	}
+	if result := db.Create(user); result.Error != nil {
+		log.Fatal(result.Error)
+	} else {
+		fmt.Println("inserted:", result.RowsAffected)
+	}
+	return user, nil
 }
 
 // todos query
