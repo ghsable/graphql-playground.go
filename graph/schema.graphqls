@@ -10,7 +10,9 @@ type Todo {
 }
 
 type User {
-  id: ID!
+  id: Int!
+  created_at: Time!
+  updated_at: Time!
   name: String!
   email: String!
   is_active: Boolean!
@@ -31,3 +33,5 @@ type Mutation {
   createTodo(input: NewTodo!): Todo!
   insertUser(name: String!, email: String!, is_active: Boolean!): User!
 }
+
+scalar Time
