@@ -18,6 +18,12 @@ type User {
   is_active: Boolean!
 }
 
+input NewUser {
+  name: String!
+  email: String!
+  is_active: Boolean!
+}
+
 type Query {
   todos: [Todo!]!
   hello: String!
@@ -31,7 +37,7 @@ input NewTodo {
 
 type Mutation {
   createTodo(input: NewTodo!): Todo!
-  insertUser(name: String!, email: String!, is_active: Boolean!): User!
+  insertUser(input: NewUser!): User!
 }
 
 scalar Time
