@@ -25,12 +25,12 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) 
 }
 
 // InsertUser is the resolver for the insertUser field.
-func (r *mutationResolver) InsertUser(ctx context.Context, name string, email string, isActive bool) (*model.User, error) {
+func (r *mutationResolver) InsertUser(ctx context.Context, input model.NewUser) (*model.User, error) {
 	db := ConnectDB()
 	user := &model.User{
-		Name:     name,
-		Email:    email,
-		IsActive: isActive,
+		Name:     input.Name,
+		Email:    input.Email,
+		IsActive: input.IsActive,
 	}
 	if result := db.Create(user); result.Error != nil {
 		log.Fatal(result.Error)

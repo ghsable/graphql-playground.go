@@ -11,6 +11,12 @@ type NewTodo struct {
 	UserID string `json:"userId"`
 }
 
+type NewUser struct {
+	Name     string `json:"name"`
+	Email    string `json:"email"`
+	IsActive bool   `json:"is_active"`
+}
+
 type Todo struct {
 	ID   string `json:"id"`
 	Text string `json:"text"`
