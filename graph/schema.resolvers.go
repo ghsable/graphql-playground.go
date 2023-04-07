@@ -8,21 +8,9 @@ import (
 	"context"
 	"fmt"
 	"log"
-	"math/rand"
 
 	"github.com/ghsable/graphql-playground.go/graph/model"
 )
-
-// createTodo mutation
-func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
-	todo := &model.Todo{
-		Text: input.Text,
-		ID:   fmt.Sprintf("T%d", rand.Int()),
-		//User: &model.User{ID: input.UserID, Name: "user " + input.UserID},
-	}
-	r.todos = append(r.todos, todo)
-	return todo, nil
-}
 
 // InsertUser is the resolver for the insertUser field.
 func (r *mutationResolver) InsertUser(ctx context.Context, input model.NewUser) (*model.User, error) {
@@ -38,11 +26,6 @@ func (r *mutationResolver) InsertUser(ctx context.Context, input model.NewUser) 
 		fmt.Println("inserted:", result.RowsAffected)
 	}
 	return user, nil
-}
-
-// todos query
-func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
-	return r.todos, nil
 }
 
 // Hello is the resolver for the hello field.
