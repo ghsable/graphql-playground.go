@@ -12,6 +12,7 @@ type User {
 }
 
 input NewUser {
+  id: Int!
   name: String!
   email: String!
   is_active: Boolean!
@@ -23,6 +24,7 @@ type Query {
 
 type Mutation {
   insertUser(input: NewUser!): User!
+  updateUser(input: NewUser!): User!
 }
 
 scalar Time
