@@ -5,6 +5,7 @@
 ```console
 $ make server
 ```
+- http://localhost:8080/
 
 ## Development
 ```mermaid
