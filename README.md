@@ -39,8 +39,10 @@ graph BT;
 └── tools.go : system
 ```
 
-### Library
+### GraphQL
 - [gqlgen](https://github.com/99designs/gqlgen)
+
+### ORM
 - [gorm](https://github.com/go-gorm/gorm)
 
 ### Database
