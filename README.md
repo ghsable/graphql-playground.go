@@ -88,3 +88,14 @@ graph BT;
   ```console
   $ make migrate
   ```
+
+## Todo
+- README.md
+  - Image
+    - Playground
+    - ER
+  - UPDATE
+  - DELETE
+- schema.*
+  - InsertUser
+  - UpdateUser
