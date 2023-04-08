@@ -11,7 +11,7 @@ type User {
   is_active: Boolean!
 }
 
-input NewUser {
+input CreateUser {
   name: String!
   email: String!
   is_active: Boolean!
@@ -22,7 +22,7 @@ type Query {
 }
 
 type Mutation {
-  insertUser(input: NewUser!): User!
+  insertUser(input: CreateUser!): User!
 }
 
 scalar Time
