@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-type NewUser struct {
+type CreateUser struct {
 	Name     string `json:"name"`
 	Email    string `json:"email"`
 	IsActive bool   `json:"is_active"`

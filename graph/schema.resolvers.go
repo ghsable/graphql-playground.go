@@ -12,8 +12,8 @@ import (
 	"github.com/ghsable/graphql-playground.go/graph/model"
 )
 
-// InsertUser is the resolver for the insertUser field.
-func (r *mutationResolver) InsertUser(ctx context.Context, input model.NewUser) (*model.User, error) {
+// CreateUser is the resolver for the createUser field.
+func (r *mutationResolver) CreateUser(ctx context.Context, input model.CreateUser) (*model.User, error) {
 	db := ConnectDB()
 	user := &model.User{
 		Name:     input.Name,
