@@ -7,6 +7,35 @@ $ make server
 ```
 - http://localhost:8080/
 
+## Example
+### GET
+```graphql
+query getUser {
+  user(is_active: true) {
+    id
+    name
+    email
+    is_active
+  }
+}
+```
+
+### POST
+```graphql
+mutation postUser {
+  insertUser(input: {
+    name: "name-f",
+    email: "f@xxx.com",
+    is_active: true
+  }) {
+    id
+    name
+    email
+    is_active
+  }
+}
+```
+
 ## Development
 ```mermaid
 graph BT;
