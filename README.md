@@ -8,10 +8,14 @@ $ make server
 - http://localhost:8080/
 
 ## Example
-### GET
+### CREATE
 ```graphql
-query getUser {
-  user(is_active: true) {
+mutation createUser {
+  createUser(input: {
+    name: "name-f",
+    email: "f@xxx.com",
+    is_active: true
+  }) {
     id
     name
     email
@@ -20,14 +24,10 @@ query getUser {
 }
 ```
 
-### POST
+### READ
 ```graphql
-mutation postUser {
-  insertUser(input: {
-    name: "name-f",
-    email: "f@xxx.com",
-    is_active: true
-  }) {
+query readUser {
+  user(is_active: true) {
     id
     name
     email
