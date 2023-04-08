@@ -55,7 +55,7 @@ graph BT;
   $ make generate
   ```
 
-- migrate
+- [migrate](https://github.com/ghsable/graphql-playground.go/blob/main/migrate.go)
   ```console
   $ make migrate
   ```
