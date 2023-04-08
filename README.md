@@ -7,6 +7,15 @@ $ make server
 ```
 
 ## Development
+```mermaid
+graph BT;
+    Database-- response -->ORM;
+    ORM-- request -->Database;
+    ORM-- response -->GraphQL;
+    GraphQL-- request -->ORM;
+    GraphQL-- response -->User;
+    User-- request -->GraphQL;
+```
 ```
 .
 ├── .gitignore : system
@@ -44,6 +53,6 @@ $ make server
   ```
 
 - migrate
-  ```
+  ```shell
   $ make migrate
   ```
