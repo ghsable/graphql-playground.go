@@ -2,7 +2,7 @@
 [GraphQL](https://graphql.org/) Playground written by [Go](https://go.dev/).
 
 ## Usage
-```shell
+```console
 $ make server
 ```
 
@@ -16,7 +16,7 @@ graph BT;
     GraphQL-- response -->User;
     User-- request -->GraphQL;
 ```
-```
+```console
 .
 ├── .gitignore : system
 ├── dev.db : human
@@ -48,11 +48,11 @@ graph BT;
 
 ### Command
 - generate
-  ```shell
+  ```console
   $ make generate
   ```
 
 - migrate
-  ```shell
+  ```console
   $ make migrate
   ```
