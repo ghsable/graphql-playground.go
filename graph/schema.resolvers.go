@@ -28,12 +28,6 @@ func (r *mutationResolver) InsertUser(ctx context.Context, input model.NewUser) 
 	return user, nil
 }
 
-// Hello is the resolver for the hello field.
-func (r *queryResolver) Hello(ctx context.Context) (string, error) {
-	//panic(fmt.Errorf("not implemented: Hello - hello"))
-	return "Hello world!!", nil
-}
-
 // User is the resolver for the user field.
 func (r *queryResolver) User(ctx context.Context, id *int, name *string, email *string, isActive *bool) ([]*model.User, error) {
 	db := ConnectDB()
