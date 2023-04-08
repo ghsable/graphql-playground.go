@@ -1,6 +1,11 @@
 # graphql-playground.go
 [GraphQL](https://graphql.org/) Playground written by [Go](https://go.dev/).
 
+## Usage
+```shell
+$ make server
+```
+
 ## Development
 ```
 .
@@ -32,3 +37,13 @@
 ### Database
 - [SQLite](https://sqlite.org/index.html)
 
+### Command
+- generate
+  ```shell
+  $ make generate
+  ```
+
+- migrate
+  ```
+  $ make migrate
+  ```
