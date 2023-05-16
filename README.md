@@ -97,5 +97,5 @@ graph BT;
   - UPDATE
   - DELETE
 - schema.*
-  - InsertUser
   - UpdateUser
+  - DeleteUser
