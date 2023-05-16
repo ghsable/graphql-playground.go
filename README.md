@@ -1,6 +1,8 @@
 # graphql-playground.go
 [GraphQL](https://graphql.org/) Playground written by [Go](https://go.dev/).
 
+![Screenshot01.png](https://github.com/ghsable/graphql-playground.go/blob/main/.readme/Screenshot01.png?raw=true)
+
 ## Usage
 ```console
 $ make server
@@ -123,5 +125,4 @@ graph BT;
 ## Todo
 - README.md
   - Image
-    - Playground
     - ER
