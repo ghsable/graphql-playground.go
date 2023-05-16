@@ -12,6 +12,13 @@ type CreateUser struct {
 	IsActive bool   `json:"is_active"`
 }
 
+type UpdateUser struct {
+	ID       int    `json:"id"`
+	Name     string `json:"name"`
+	Email    string `json:"email"`
+	IsActive bool   `json:"is_active"`
+}
+
 type User struct {
 	ID        int       `json:"id"`
 	CreatedAt time.Time `json:"created_at"`
