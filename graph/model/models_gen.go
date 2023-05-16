@@ -12,6 +12,10 @@ type CreateUser struct {
 	IsActive bool   `json:"is_active"`
 }
 
+type DeleteUser struct {
+	ID int `json:"id"`
+}
+
 type UpdateUser struct {
 	ID       int    `json:"id"`
 	Name     string `json:"name"`
