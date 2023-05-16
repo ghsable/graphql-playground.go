@@ -53,6 +53,20 @@ mutation updateUser {
 }
 ```
 
+### DELETE
+```graphql
+mutation deleteUser {
+  deleteUser(input: {
+    id: 7
+  }) {
+    id
+    name
+    email
+    is_active
+  }
+}
+```
+
 ## Development
 ```mermaid
 graph BT;
@@ -111,6 +125,3 @@ graph BT;
   - Image
     - Playground
     - ER
-  - DELETE
-- schema.*
-  - DeleteUser
