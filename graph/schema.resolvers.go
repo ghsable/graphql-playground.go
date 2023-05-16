@@ -30,7 +30,20 @@ func (r *mutationResolver) CreateUser(ctx context.Context, input model.CreateUse
 
 // UpdateUser is the resolver for the updateUser field.
 func (r *mutationResolver) UpdateUser(ctx context.Context, input model.UpdateUser) (*model.User, error) {
-	panic(fmt.Errorf("not implemented: UpdateUser - updateUser"))
+	db := ConnectDB()
+	user := &model.User{
+		ID: input.ID,
+	}
+	if result := db.First(user); result.Error != nil {
+		return nil, result.Error
+	}
+	user.Name = input.Name
+	user.Email = input.Email
+	user.IsActive = input.IsActive
+	if result := db.Save(user); result.Error != nil {
+		return nil, result.Error
+	}
+	return user, nil
 }
 
 // User is the resolver for the user field.
