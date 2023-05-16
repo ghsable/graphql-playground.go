@@ -24,6 +24,10 @@ input UpdateUser {
   is_active: Boolean!
 }
 
+input DeleteUser {
+  id: Int!
+}
+
 type Query {
   user(id: Int, name: String, email: String, is_active: Boolean): [User!]!
 }
@@ -31,6 +35,7 @@ type Query {
 type Mutation {
   createUser(input: CreateUser!): User!
   updateUser(input: UpdateUser!): User!
+  deleteUser(input: DeleteUser!): User!
 }
 
 scalar Time
