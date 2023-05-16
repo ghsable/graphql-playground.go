@@ -7,7 +7,6 @@ package graph
 import (
 	"context"
 	"fmt"
-	"log"
 
 	"github.com/ghsable/graphql-playground.go/graph/model"
 )
@@ -21,7 +20,7 @@ func (r *mutationResolver) CreateUser(ctx context.Context, input model.CreateUse
 		IsActive: input.IsActive,
 	}
 	if result := db.Create(user); result.Error != nil {
-		log.Fatal(result.Error)
+		return nil, result.Error
 	} else {
 		fmt.Println("inserted:", result.RowsAffected)
 	}
