@@ -36,6 +36,23 @@ query readUser {
 }
 ```
 
+### UPDATE
+```graphql
+mutation updateUser {
+  updateUser(input: {
+    id: 1,
+    name: "name-a",
+    email: "a@xxx.com",
+    is_active: false
+  }) {
+    id
+    name
+    email
+    is_active
+  }
+}
+```
+
 ## Development
 ```mermaid
 graph BT;
@@ -94,8 +111,6 @@ graph BT;
   - Image
     - Playground
     - ER
-  - UPDATE
   - DELETE
 - schema.*
-  - UpdateUser
   - DeleteUser
