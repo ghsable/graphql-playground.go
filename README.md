@@ -10,6 +10,19 @@ $ make server
 - http://localhost:8080/
 
 ## Example
+```mermaid
+erDiagram
+  users {
+    integer id PK "gorm.Model"
+    datetime created_at "gorm.Model"
+    datetime updated_at "gorm.Model"
+    datetime deleted_at "gorm.Model"
+    text name
+    text email
+    numeric is_active
+  }
+```
+
 ### CREATE
 ```graphql
 mutation createUser {
