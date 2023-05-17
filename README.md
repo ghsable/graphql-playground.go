@@ -134,8 +134,3 @@ graph BT;
   ```console
   $ make migrate
   ```
-
-## Todo
-- README.md
-  - Image
-    - ER
