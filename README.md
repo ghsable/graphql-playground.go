@@ -55,9 +55,9 @@ query readUser {
 ```graphql
 mutation updateUser {
   updateUser(input: {
-    id: 1,
-    name: "name-a",
-    email: "a@xxx.com",
+    id: 6,
+    name: "name-f",
+    email: "f@xxx.com",
     is_active: false
   }) {
     id
@@ -72,7 +72,7 @@ mutation updateUser {
 ```graphql
 mutation deleteUser {
   deleteUser(input: {
-    id: 7
+    id: 6
   }) {
     id
     name
