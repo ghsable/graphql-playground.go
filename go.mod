@@ -5,8 +5,8 @@ go 1.20
 require (
 	github.com/99designs/gqlgen v0.17.39
 	github.com/vektah/gqlparser/v2 v2.5.10
-	gorm.io/driver/sqlite v1.5.1
-	gorm.io/gorm v1.25.1
+	gorm.io/driver/sqlite v1.5.4
+	gorm.io/gorm v1.25.5
 )
 
 require (
